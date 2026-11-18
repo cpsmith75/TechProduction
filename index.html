@@ -2,22 +2,115 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#17142e"><meta name="description" content="TechProduction gaming rewards prototype">
+<meta name="theme-color" content="#17142e"><meta name="description" content="TechProduction gaming rewards platform">
 <link rel="manifest" href="manifest.webmanifest">
 <title>TechProduction — Play. Earn. Enjoy.</title>
 <style>
-:root{--bg:#100e20;--panel:#1d1935;--panel2:#282246;--text:#f7f4ff;--muted:#b7b0ce;--purple:#a88bff;--gold:#ffd66e;--mint:#8fe0bd}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top right,#302457 0,#100e20 42%);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}header{max-width:1050px;margin:auto;padding:24px 20px 12px;display:flex;justify-content:space-between;align-items:center}.brand{font-weight:900;letter-spacing:.08em}.brand span{color:var(--purple)}.pill{border:1px solid #514775;color:#d9d0ff;border-radius:99px;padding:6px 11px;font-size:12px}main{max-width:1050px;margin:auto;padding:18px 20px 50px}.hero{padding:28px;border:1px solid #40365f;border-radius:24px;background:linear-gradient(125deg,#282044,#19162e 65%);display:flex;gap:24px;align-items:center;justify-content:space-between}.eyebrow{color:var(--mint);font-size:12px;font-weight:800;letter-spacing:.16em}.hero h1{font-size:clamp(34px,6vw,58px);line-height:1.02;margin:8px 0}.hero p{color:var(--muted);max-width:520px}.coin{min-width:155px;text-align:center;background:#352b51;border:1px solid #5b4a7d;border-radius:20px;padding:18px}.coin strong{display:block;font-size:32px;color:var(--gold)}.sectionhead{display:flex;align-items:center;justify-content:space-between;margin:30px 0 14px}.sectionhead h2{margin:0;font-size:20px}.muted{color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{background:var(--panel);border:1px solid #393151;border-radius:18px;padding:17px}.gameicon{font-size:30px;width:54px;height:54px;border-radius:15px;display:grid;place-items:center;background:var(--panel2);margin-bottom:12px}.card h3{margin:0 0 4px}.card p{color:var(--muted);font-size:13px;min-height:38px;margin:0 0 14px}.btn{background:var(--purple);border:0;border-radius:12px;padding:10px 14px;color:#171128;font-weight:800;cursor:pointer}.btn.secondary{background:#342c4e;color:#eee8ff;border:1px solid #554875}.btn:disabled{opacity:.55;cursor:not-allowed}.row{display:flex;gap:10px;flex-wrap:wrap}.twocol{display:grid;grid-template-columns:1fr 1fr;gap:14px}.notice{margin-top:20px;padding:14px 16px;border-radius:14px;background:#211d34;border:1px solid #49405e;color:#c9c2dc;font-size:12px}.activity{padding:10px 0;border-bottom:1px solid #38314c;display:flex;justify-content:space-between;gap:10px}.activity:last-child{border:0}.positive{color:var(--mint);font-weight:800}footer{text-align:center;color:#827b9a;font-size:12px;padding:24px}
-@media(max-width:700px){.hero{display:block}.coin{margin-top:18px}.grid{grid-template-columns:1fr 1fr}.twocol{grid-template-columns:1fr}}@media(max-width:420px){.grid{grid-template-columns:1fr}header{padding-top:18px}}
+:root{--bg:#100e20;--panel:#1d1935;--panel2:#282246;--text:#f7f4ff;--muted:#b7b0ce;--purple:#a88bff;--gold:#ffd66e;--mint:#8fe0bd;--danger:#ff9caa}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top right,#302457 0,#100e20 42%);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}header{max-width:1050px;margin:auto;padding:24px 20px 12px;display:flex;justify-content:space-between;align-items:center;gap:12px}.brand{font-weight:900;letter-spacing:.08em}.brand span{color:var(--purple)}.pill{border:1px solid #514775;color:#d9d0ff;border-radius:99px;padding:6px 11px;font-size:12px}main{max-width:1050px;margin:auto;padding:18px 20px 50px}.hero{padding:28px;border:1px solid #40365f;border-radius:24px;background:linear-gradient(125deg,#282044,#19162e 65%);display:flex;gap:24px;align-items:center;justify-content:space-between}.eyebrow{color:var(--mint);font-size:12px;font-weight:800;letter-spacing:.16em}.hero h1{font-size:clamp(34px,6vw,58px);line-height:1.02;margin:8px 0}.hero p{color:var(--muted);max-width:520px}.coin{min-width:155px;text-align:center;background:#352b51;border:1px solid #5b4a7d;border-radius:20px;padding:18px}.coin strong{display:block;font-size:32px;color:var(--gold)}.sectionhead{display:flex;align-items:center;justify-content:space-between;margin:30px 0 14px;gap:12px}.sectionhead h2{margin:0;font-size:20px}.muted{color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{background:var(--panel);border:1px solid #393151;border-radius:18px;padding:17px}.gameicon{font-size:30px;width:54px;height:54px;border-radius:15px;display:grid;place-items:center;background:var(--panel2);margin-bottom:12px}.card h3{margin:0 0 4px}.card p{color:var(--muted);font-size:13px;min-height:38px;margin:0 0 14px}.btn{background:var(--purple);border:0;border-radius:12px;padding:10px 14px;color:#171128;font-weight:800;cursor:pointer}.btn.secondary{background:#342c4e;color:#eee8ff;border:1px solid #554875}.btn:disabled{opacity:.55;cursor:not-allowed}.row{display:flex;gap:10px;flex-wrap:wrap}.twocol{display:grid;grid-template-columns:1fr 1fr;gap:14px}.notice,.status{margin-top:14px;padding:14px 16px;border-radius:14px;background:#211d34;border:1px solid #49405e;color:#c9c2dc;font-size:13px}.status.error{border-color:#8b4353;color:#ffd1d8}.status.success{border-color:#3e8068;color:#c3f5df}.auth{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}.auth form{display:grid;gap:10px}.auth label{font-size:13px;color:var(--muted)}input{width:100%;padding:12px;border-radius:10px;border:1px solid #554875;background:#120f23;color:var(--text);font:inherit}input:focus{outline:2px solid var(--purple);outline-offset:1px}.activity{padding:10px 0;border-bottom:1px solid #38314c;display:flex;justify-content:space-between;gap:10px}.activity:last-child{border:0}.positive{color:var(--mint);font-weight:800}.hidden{display:none!important}footer{text-align:center;color:#827b9a;font-size:12px;padding:24px}
+@media(max-width:700px){.hero{display:block}.coin{margin-top:18px}.grid{grid-template-columns:1fr 1fr}.twocol,.auth{grid-template-columns:1fr}}@media(max-width:420px){.grid{grid-template-columns:1fr}header{padding-top:18px;align-items:flex-start;flex-direction:column}}
 </style></head>
-<body><header><div class="brand">TECH<span>PRODUCTION</span></div><div class="pill">EARLY PREVIEW · DEMO</div></header>
-<main><section class="hero"><div><div class="eyebrow">YOUR GAMING REWARDS DESTINATION</div><h1>Play. Earn.<br>Enjoy.</h1><p>Discover casual games, complete challenges, and keep track of your progress in one place.</p><div class="row"><button class="btn" onclick="document.getElementById('games').scrollIntoView({behavior:'smooth'})">Explore games</button><button class="btn secondary" onclick="alert('Account creation will be added in the next build step.')">Create account</button></div></div><div class="coin"><div>🪙 DEMO COINS</div><strong id="balance">0</strong><span class="muted">sample balance only</span></div></section>
-<div class="sectionhead" id="games"><h2>Featured games</h2><span class="muted">Sample catalog</span></div><section class="grid">
-<article class="card"><div class="gameicon">🧩</div><h3>Daily Puzzle</h3><p>Try a quick brain teaser and build a daily streak.</p><button class="btn" onclick="play('Daily Puzzle',10)">Try demo · +10</button></article>
-<article class="card"><div class="gameicon">🏁</div><h3>Speed Challenge</h3><p>Test your reflexes in a short arcade challenge.</p><button class="btn" onclick="play('Speed Challenge',15)">Try demo · +15</button></article>
-<article class="card"><div class="gameicon">🧠</div><h3>Memory Match</h3><p>Match the pairs and sharpen your memory.</p><button class="btn" onclick="play('Memory Match',12)">Try demo · +12</button></article>
+<body>
+<header><div class="brand">TECH<span>PRODUCTION</span></div><div class="pill" id="connectionBadge">ACCOUNT SETUP · TEST VERSION</div></header>
+<main>
+<section class="hero"><div><div class="eyebrow">YOUR GAMING REWARDS DESTINATION</div><h1>Play. Earn.<br>Enjoy.</h1><p>Discover casual games, complete challenges, and keep track of your progress in one place.</p><div class="row"><button class="btn" onclick="document.getElementById('games').scrollIntoView({behavior:'smooth'})">Explore games</button><button class="btn secondary" onclick="document.getElementById('account').scrollIntoView({behavior:'smooth'})">Player account</button></div></div><div class="coin"><div>🪙 DEMO COINS</div><strong id="balance">0</strong><span class="muted">sample balance only</span></div></section>
+<div class="sectionhead" id="account"><h2>Player account</h2><span class="muted" id="accountState">Not signed in</span></div>
+<section class="card">
+  <div id="signedOut" class="auth">
+    <form id="signupForm"><h3>Create your account</h3><label for="signupName">Display name</label><input id="signupName" maxlength="60" autocomplete="nickname" placeholder="Your player name" required><label for="signupEmail">Email address</label><input id="signupEmail" type="email" autocomplete="email" placeholder="you@example.com" required><label for="signupPassword">Password (at least 8 characters)</label><input id="signupPassword" type="password" minlength="8" autocomplete="new-password" placeholder="Create a password" required><button class="btn" type="submit">Create account</button></form>
+    <form id="loginForm"><h3>Welcome back</h3><label for="loginEmail">Email address</label><input id="loginEmail" type="email" autocomplete="email" placeholder="you@example.com" required><label for="loginPassword">Password</label><input id="loginPassword" type="password" autocomplete="current-password" placeholder="Your password" required><button class="btn secondary" type="submit">Sign in</button></form>
+  </div>
+  <div id="signedIn" class="hidden"><h3>Welcome, <span id="playerName">player</span>!</h3><p class="muted" id="playerEmail"></p><p class="muted">Your account is connected. Your TechProduction profile is stored securely in Supabase.</p><button class="btn secondary" id="signOutButton" type="button">Sign out</button></div>
+  <div id="authMessage" class="status" role="status" aria-live="polite">Enter your Supabase project URL and publishable key in supabase-config.js to activate player accounts.</div>
 </section>
-<div class="sectionhead"><h2>My activity</h2><span class="muted">This device only</span></div><section class="twocol"><div class="card"><h3>Reward wallet</h3><p class="muted">Your demo points and recent activity.</p><div class="activity"><span>Demo points earned</span><strong class="positive" id="total">0</strong></div><div class="activity"><span>Cash value</span><strong>Not available</strong></div><div class="activity"><span>Redemptions</span><strong>Not enabled</strong></div></div><div class="card"><h3>Recent plays</h3><div id="history" class="muted">No demo games played yet.</div></div></section>
-<div class="notice"><strong>Prototype notice:</strong> This is a visual demo. Coins are simulated, have no cash value, and cannot be redeemed. No real games, ads, accounts, tracking, or payments are connected. Real rewards will only be enabled after verified game-partner tracking, revenue funding, fraud controls, and legal/policy review.</div></main><footer>© 2026 TechProduction · Early product prototype</footer>
-<script>let balance=0,plays=[];function play(name,points){balance+=points;plays.unshift({name,points});document.getElementById('balance').textContent=balance.toLocaleString();document.getElementById('total').textContent=balance.toLocaleString();document.getElementById('history').innerHTML=plays.slice(0,5).map(p=>`<div class="activity"><span>${p.name}</span><strong class="positive">+${p.points}</strong></div>`).join('');}</script>
-<script>if('serviceWorker' in navigator && location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{});</script>
+<div class="sectionhead" id="games"><h2>Featured games</h2><span class="muted">Sample catalog</span></div><section class="grid">
+<article class="card"><div class="gameicon">🧩</div><h3>Daily Puzzle</h3><p>Try a quick brain teaser and build a daily streak.</p><button class="btn" onclick="playDemo('Daily Puzzle',10)">Try demo · +10</button></article>
+<article class="card"><div class="gameicon">🏁</div><h3>Speed Challenge</h3><p>Test your reflexes in a short arcade challenge.</p><button class="btn" onclick="playDemo('Speed Challenge',15)">Try demo · +15</button></article>
+<article class="card"><div class="gameicon">🧠</div><h3>Memory Match</h3><p>Match the pairs and sharpen your memory.</p><button class="btn" onclick="playDemo('Memory Match',12)">Try demo · +12</button></article>
+</section>
+<div class="sectionhead"><h2>My demo activity</h2><span class="muted">This browser only</span></div><section class="twocol"><div class="card"><h3>Demo wallet</h3><p class="muted">Sample points only; not linked to your account.</p><div class="activity"><span>Demo points earned</span><strong class="positive" id="total">0</strong></div><div class="activity"><span>Cash value</span><strong>Not available</strong></div><div class="activity"><span>Redemptions</span><strong>Not enabled</strong></div></div><div class="card"><h3>Recent demo plays</h3><div id="history" class="muted">No demo games played yet.</div></div></section>
+<div class="notice"><strong>Important:</strong> This build adds real email registration, sign-in, sign-out, and player profile lookup. The games and coins are still demonstrations with no cash value. Real-money rewards require verified partner tracking, funded reward economics, fraud controls, and legal and app-store review. Never treat demo points as earnings.</div>
+</main><footer>© 2026 TechProduction · Player accounts test version</footer>
+<script src="./supabase-config.js"></script>
+<script type="module">
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+const url = window.TECHPRODUCTION_SUPABASE_URL;
+const key = window.TECHPRODUCTION_SUPABASE_PUBLISHABLE_KEY;
+const msg = document.getElementById('authMessage');
+const badge = document.getElementById('connectionBadge');
+const signedOut = document.getElementById('signedOut');
+const signedIn = document.getElementById('signedIn');
+const accountState = document.getElementById('accountState');
+let supabase = null;
+function showMessage(text, kind='') { msg.textContent = text; msg.className = 'status' + (kind ? ' ' + kind : ''); }
+function showSession(user, profile=null) {
+  const loggedIn = Boolean(user);
+  signedOut.classList.toggle('hidden', loggedIn);
+  signedIn.classList.toggle('hidden', !loggedIn);
+  accountState.textContent = loggedIn ? 'Signed in' : 'Not signed in';
+  if (loggedIn) {
+    document.getElementById('playerName').textContent = profile?.display_name || user.user_metadata?.display_name || 'player';
+    document.getElementById('playerEmail').textContent = user.email || '';
+  }
+}
+async function loadProfile(user) {
+  const { data, error } = await supabase.from('profiles').select('display_name').eq('id', user.id).maybeSingle();
+  if (error) { showMessage('You are signed in, but your profile could not be loaded. Check the profiles table policies in Supabase.', 'error'); return null; }
+  return data;
+}
+if (!url || !key || url.includes('PASTE_YOUR') || key.includes('PASTE_YOUR')) {
+  badge.textContent = 'SETUP REQUIRED';
+  showSession(null);
+  showMessage('Setup required: open supabase-config.js in your GitHub repository and replace both placeholders with your Project URL and publishable key. Do not use a secret or service_role key.');
+  document.querySelectorAll('#signupForm button,#loginForm button').forEach(b => b.disabled = true);
+} else {
+  try {
+    supabase = createClient(url, key);
+    badge.textContent = 'SUPABASE CONNECTED';
+    showMessage('Supabase connection configured. You can create a test player account or sign in.', 'success');
+    const { data: { session } } = await supabase.auth.getSession();
+    if (session?.user) showSession(session.user, await loadProfile(session.user)); else showSession(null);
+    supabase.auth.onAuthStateChange((_event, sessionNow) => {
+      if (sessionNow?.user) { showSession(sessionNow.user); setTimeout(async () => showSession(sessionNow.user, await loadProfile(sessionNow.user)), 0); }
+      else showSession(null);
+    });
+  } catch (e) {
+    badge.textContent = 'CONNECTION ERROR';
+    showMessage('Could not initialize Supabase. Double-check the Project URL and publishable key in supabase-config.js.', 'error');
+  }
+}
+document.getElementById('signupForm').addEventListener('submit', async (event) => {
+  event.preventDefault(); if (!supabase) return;
+  const name = document.getElementById('signupName').value.trim();
+  const email = document.getElementById('signupEmail').value.trim();
+  const password = document.getElementById('signupPassword').value;
+  const button = event.currentTarget.querySelector('button'); button.disabled = true;
+  showMessage('Creating your account…');
+  const { data, error } = await supabase.auth.signUp({ email, password, options: { data: { display_name: name } } });
+  button.disabled = false;
+  if (error) { showMessage(error.message, 'error'); return; }
+  if (data.session) { showSession(data.user); showMessage('Account created! You are signed in.', 'success'); }
+  else showMessage('Registration received. Check your email for a confirmation link, then return here and sign in.', 'success');
+  event.currentTarget.reset();
+});
+document.getElementById('loginForm').addEventListener('submit', async (event) => {
+  event.preventDefault(); if (!supabase) return;
+  const email = document.getElementById('loginEmail').value.trim();
+  const password = document.getElementById('loginPassword').value;
+  const button = event.currentTarget.querySelector('button'); button.disabled = true;
+  showMessage('Signing in…');
+  const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+  button.disabled = false;
+  if (error) { showMessage(error.message, 'error'); return; }
+  const profile = await loadProfile(data.user); showSession(data.user, profile); showMessage('You are signed in to TechProduction.', 'success'); event.currentTarget.reset();
+});
+document.getElementById('signOutButton').addEventListener('click', async () => {
+  if (!supabase) return; const { error } = await supabase.auth.signOut();
+  if (error) showMessage(error.message, 'error'); else { showSession(null); showMessage('You have signed out.', 'success'); }
+});
+</script>
+<script>
+let demoBalance=0,demoPlays=[];
+function playDemo(name,points){demoBalance+=points;demoPlays.unshift({name,points});document.getElementById('balance').textContent=demoBalance.toLocaleString();document.getElementById('total').textContent=demoBalance.toLocaleString();document.getElementById('history').innerHTML=demoPlays.slice(0,5).map(p=>`<div class="activity"><span>${p.name}</span><strong class="positive">+${p.points}</strong></div>`).join('');}
+if('serviceWorker' in navigator && location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{});
+</script>
 </body></html>
