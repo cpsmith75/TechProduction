@@ -124,7 +124,7 @@ document.getElementById('resendConfirmationButton').addEventListener('click', as
   const email = document.getElementById('loginEmail').value.trim();
 
   if (!email) {
-    showMessage('Enter your email in the Welcome back section first.', 'error');
+    showMessage('Enter your email first.', 'error');
     return;
   }
 
@@ -144,9 +144,9 @@ document.getElementById('resendConfirmationButton').addEventListener('click', as
   if (error) {
     showMessage(error.message, 'error');
   } else {
-    showMessage('New confirmation email requested. Check your inbox and spam folder.', 'success');
+    showMessage('New confirmation email requested. Check your inbox.', 'success');
   }
-} else {;
+});
 
 document.getElementById('signOutButton').addEventListener('click', async () => {
   if (!supabase) return;
