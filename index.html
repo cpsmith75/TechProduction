@@ -93,6 +93,73 @@ document.getElementById('signupForm').addEventListener('submit', async (event) =
   event.currentTarget.reset();
 });
 document.getElementById('loginForm').addEventListener('submit', async (event) => {
+  event.preventDefault();
+  if (!supabase) return;
+
+  const email = document.getElementById('loginEmail').value.trim();
+  const password = document.getElementById('loginPassword').value;
+  const button = event.currentTarget.querySelector('button');
+
+  button.disabled = true;
+  showMessage('Signing in…');
+
+  const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+
+  button.disabled = false;
+
+  if (error) {
+    showMessage(error.message, 'error');
+    return;
+  }
+
+  const profile = await loadProfile(data.user);
+  showSession(data.user, profile);
+  showMessage('You are signed in to TechProduction.', 'success');
+  event.currentTarget.reset();
+});
+
+document.getElementById('resendConfirmationButton').addEventListener('click', async () => {
+  if (!supabase) return;
+
+  const email = document.getElementById('loginEmail').value.trim();
+
+  if (!email) {
+    showMessage('Enter your email in the Welcome back section first.', 'error');
+    return;
+  }
+
+  const button = document.getElementById('resendConfirmationButton');
+  button.disabled = true;
+
+  const { error } = await supabase.auth.resend({
+    type: 'signup',
+    email,
+    options: {
+      emailRedirectTo: window.location.origin + window.location.pathname
+    }
+  });
+
+  button.disabled = false;
+
+  if (error) {
+    showMessage(error.message, 'error');
+  } else {
+    showMessage('New confirmation email requested. Check your inbox and spam folder.', 'success');
+  }
+});
+
+document.getElementById('signOutButton').addEventListener('click', async () => {
+  if (!supabase) return;
+
+  const { error } = await supabase.auth.signOut();
+
+  if (error) {
+    showMessage(error.message, 'error');
+  } else {
+    showSession(null);
+    showMessage('You have signed out.', 'success');
+  }
+});
   event.preventDefault(); if (!supabase) return;
   const email = document.getElementById('loginEmail').value.trim();
   const password = document.getElementById('loginPassword').value;
