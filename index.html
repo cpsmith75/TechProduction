@@ -18,7 +18,7 @@
   <div id="signedOut" class="auth">
     <form id="signupForm"><h3>Create your account</h3><label for="signupName">Display name</label><input id="signupName" maxlength="60" autocomplete="nickname" placeholder="Your player name" required><label for="signupEmail">Email address</label><input id="signupEmail" type="email" autocomplete="email" placeholder="you@example.com" required><label for="signupPassword">Password (at least 8 characters)</label><input id="signupPassword" type="password" minlength="8" autocomplete="new-password" placeholder="Create a password" required><button class="btn" type="submit">Create account</button></form>
     <form id="loginForm"><h3>Welcome back</h3><label for="loginEmail">Email address</label><input id="loginEmail" type="email" autocomplete="email" placeholder="you@example.com" required><label for="loginPassword">Password</label><input id="loginPassword" type="password" autocomplete="current-password" placeholder="Your password" required><button class="btn secondary" type="submit">Sign in</button></form>
-  </div>
+  <button class="btn secondary" id="resendConfirmationButton" type="button">Resend confirmation email</button></div>
   <div id="signedIn" class="hidden"><h3>Welcome, <span id="playerName">player</span>!</h3><p class="muted" id="playerEmail"></p><p class="muted">Your account is connected. Your TechProduction profile is stored securely in Supabase.</p><button class="btn secondary" id="signOutButton" type="button">Sign out</button></div>
   <div id="authMessage" class="status" role="status" aria-live="polite">Enter your Supabase project URL and publishable key in supabase-config.js to activate player accounts.</div>
 </section>
@@ -102,7 +102,31 @@ document.getElementById('loginForm').addEventListener('submit', async (event) =>
   button.disabled = false;
   if (error) { showMessage(error.message, 'error'); return; }
   const profile = await loadProfile(data.user); showSession(data.user, profile); showMessage('You are signed in to TechProduction.', 'success'); event.currentTarget.reset();
-});
+  }) ;document.getElementById('resendConfirmationButton').addEventListener('click', async () => {
+  const email = document.getElementById('loginEmail').value.trim();
+
+  if (!email) {
+    showMessage('Enter your email in the Welcome back section first.', 'error');
+    return;
+  }
+
+  const button = document.getElementById('resendConfirmationButton');
+  button.disabled = true;
+
+  const { error } = await supabase.auth.resend({
+    type: 'signup',
+    email,
+    options: {
+      emailRedirectTo: window.location.origin + window.location.pathname
+    }
+  });
+
+  button.disabled = false;
+
+  if (error) {
+    showMessage(error.message, 'error');
+  } else {
+    showMessage('New confirmation email requested. Check your inbox and spam folder.', 'success');
 document.getElementById('signOutButton').addEventListener('click', async () => {
   if (!supabase) return; const { error } = await supabase.auth.signOut();
   if (error) showMessage(error.message, 'error'); else { showSession(null); showMessage('You have signed out.', 'success'); }
