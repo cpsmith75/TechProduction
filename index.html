@@ -146,7 +146,7 @@ document.getElementById('resendConfirmationButton').addEventListener('click', as
   } else {
     showMessage('New confirmation email requested. Check your inbox and spam folder.', 'success');
   }
-});
+} else {;
 
 document.getElementById('signOutButton').addEventListener('click', async () => {
   if (!supabase) return;
