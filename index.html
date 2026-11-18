@@ -103,7 +103,10 @@ document.getElementById('loginForm').addEventListener('submit', async (event) =>
   button.disabled = true;
   showMessage('Signing in…');
 
-  const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email,
+    password
+  });
 
   button.disabled = false;
 
